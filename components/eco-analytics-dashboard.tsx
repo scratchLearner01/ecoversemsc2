@@ -36,9 +36,9 @@ export default function EcoAnalyticsDashboard({ data }: AnalyticsDashboardProps)
 
   return (
     <div>
-      <h3 className="text-2xl font-bold text-foreground mb-6">Eco Analytics Dashboard</h3>
+      <h3 className="text-2xl font-bold text-foreground mb-6 animate-fade-in">Eco Analytics Dashboard</h3>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="p-6 border-0 bg-card rounded-xl">
+        <Card className="p-6 border-0 bg-card rounded-xl hover:shadow-lg transition-all duration-200 animate-fade-in">
           <h4 className="text-lg font-semibold text-foreground mb-4">EcoPoints Growth</h4>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={ecoPointsData}>
@@ -63,7 +63,10 @@ export default function EcoAnalyticsDashboard({ data }: AnalyticsDashboardProps)
           </ResponsiveContainer>
         </Card>
 
-        <Card className="p-6 border-0 bg-card rounded-xl">
+        <Card
+          className="p-6 border-0 bg-card rounded-xl hover:shadow-lg transition-all duration-200 animate-fade-in"
+          style={{ animationDelay: "100ms" }}
+        >
           <h4 className="text-lg font-semibold text-foreground mb-4">CO₂ Reduction %</h4>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={co2ReductionData}>

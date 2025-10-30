@@ -56,14 +56,14 @@ export default function IndustrySummaryBar({ data }: SummaryBarProps) {
   return (
     <div className="bg-gradient-to-r from-primary/5 via-background to-secondary/5 border-b border-border py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-foreground mb-6">Your Impact Summary</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6 animate-fade-in">Your Impact Summary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {summaryCards.map((card, index) => {
             const Icon = card.icon
             return (
               <Card
                 key={index}
-                className={`p-6 border-0 bg-gradient-to-br ${card.color} text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+                className={`p-6 border-0 bg-gradient-to-br ${card.color} text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 ${
                   isVisible ? "animate-slide-in-left" : ""
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -75,7 +75,7 @@ export default function IndustrySummaryBar({ data }: SummaryBarProps) {
                       {typeof card.value === "number" ? <CountUpNumber value={card.value} /> : card.value}
                     </div>
                   </div>
-                  <Icon className="w-6 h-6 opacity-80" />
+                  <Icon className="w-6 h-6 opacity-80 group-hover:scale-110 transition-transform" />
                 </div>
                 <p className="text-xs opacity-80">{card.note}</p>
               </Card>

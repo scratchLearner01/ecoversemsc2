@@ -25,14 +25,14 @@ const leaderboardData = [
 export default function LocalInsights() {
   return (
     <div className="space-y-6">
-      <div>
+      <div className="animate-fade-in">
         <h2 className="text-2xl font-bold text-foreground">Local Area Insights</h2>
         <p className="text-muted-foreground mt-1">See how your city is performing and compete with local leaders</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* AQI Chart */}
-        <Card className="rounded-xl p-6 border-border">
+        <Card className="rounded-xl p-6 border-border hover:shadow-lg transition-all duration-200 animate-fade-in">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-foreground">Air Quality Index (7-Day Trend)</h3>
             <TrendingUp className="w-5 h-5 text-primary" />
@@ -70,19 +70,20 @@ export default function LocalInsights() {
         </Card>
 
         {/* Leaderboard */}
-        <Card className="rounded-xl p-6 border-border">
+        <Card className="rounded-xl p-6 border-border hover:shadow-lg transition-all duration-200 animate-fade-in">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-foreground">Local Leaderboard</h3>
             <Trophy className="w-5 h-5 text-primary" />
           </div>
 
           <div className="space-y-2">
-            {leaderboardData.map((entry) => (
+            {leaderboardData.map((entry, idx) => (
               <div
                 key={entry.rank}
-                className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
+                className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 hover:shadow-md ${
                   entry.isUser ? "bg-primary/10 border border-primary/30" : "hover:bg-muted border border-transparent"
-                }`}
+                } animate-slide-in-left`}
+                style={{ animationDelay: `${idx * 50}ms` }}
               >
                 {/* Rank */}
                 <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm">
@@ -116,22 +117,22 @@ export default function LocalInsights() {
       </div>
 
       {/* City Stats Summary */}
-      <Card className="rounded-xl p-6 border-border bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5">
+      <Card className="rounded-xl p-6 border-border bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 hover:shadow-lg transition-all duration-200 animate-fade-in">
         <h3 className="text-lg font-semibold text-foreground mb-4">Bengaluru City Stats</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div>
+          <div className="p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200">
             <p className="text-sm text-muted-foreground">Active Contributors</p>
             <p className="text-2xl font-bold text-primary mt-1">12,847</p>
           </div>
-          <div>
+          <div className="p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200">
             <p className="text-sm text-muted-foreground">Total EcoPoints</p>
             <p className="text-2xl font-bold text-secondary mt-1">2.3M</p>
           </div>
-          <div>
+          <div className="p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200">
             <p className="text-sm text-muted-foreground">Trees Planted</p>
             <p className="text-2xl font-bold text-primary mt-1">45,230</p>
           </div>
-          <div>
+          <div className="p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200">
             <p className="text-sm text-muted-foreground">CO₂ Saved (kg)</p>
             <p className="text-2xl font-bold text-secondary mt-1">892K</p>
           </div>

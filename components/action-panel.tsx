@@ -53,21 +53,22 @@ export default function ActionPanel() {
   return (
     <>
       <div className="space-y-4">
-        <div>
+        <div className="animate-fade-in">
           <h2 className="text-2xl font-bold text-foreground">Log Your Actions & Earn EcoPoints</h2>
           <p className="text-muted-foreground mt-1">Complete verified sustainability actions to earn rewards</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {actions.map((action) => (
-            <ActionCard
-              key={action.id}
-              icon={action.icon}
-              title={action.title}
-              description={action.description}
-              points={action.points}
-              onClick={() => setActiveModal(action.id)}
-            />
+          {actions.map((action, index) => (
+            <div key={action.id} style={{ animationDelay: `${index * 50}ms` }}>
+              <ActionCard
+                icon={action.icon}
+                title={action.title}
+                description={action.description}
+                points={action.points}
+                onClick={() => setActiveModal(action.id)}
+              />
+            </div>
           ))}
         </div>
       </div>
