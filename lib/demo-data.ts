@@ -2,11 +2,11 @@ export const demoData = {
   nationalStats: {
     msw_tonnes_per_year: 62000000,
     lastWeek: {
-      co2_saved_kg: 12000,
-      trees_planted: 420,
-      plastic_recycled_kg: 9200,
-      new_contributors: 4800,
-      cities_engaged: 26,
+      co2_saved_kg: 184500,
+      trees_planted: 2847,
+      plastic_recycled_kg: 156800,
+      new_contributors: 12350,
+      cities_engaged: 42,
     },
   },
   states: [

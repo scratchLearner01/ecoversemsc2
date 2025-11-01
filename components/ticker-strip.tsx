@@ -27,28 +27,34 @@ export default function TickerStrip({ stats }: TickerStripProps) {
 
   return (
     <div
-      className="w-full bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 border-y border-border py-4 overflow-hidden"
+      className="w-full bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 dark:from-emerald-950/30 dark:via-teal-950/30 dark:to-emerald-950/30 border-y border-emerald-200 dark:border-emerald-900 py-6 overflow-hidden shadow-sm"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <p className="text-sm font-semibold text-muted-foreground mb-4 text-center">This week's verified impact</p>
-        <div className="flex gap-8 overflow-x-auto pb-2 scrollbar-hide">
+        <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300 mb-5 text-center uppercase tracking-widest">
+          📊 This week's verified impact
+        </p>
+        <div className="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
           {tickerItems.map((item, index) => {
             const Icon = item.icon
             const value = stats[item.key as keyof typeof stats]
             return (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center gap-3 px-4 py-2 bg-card rounded-lg border border-border hover:shadow-md transition-all duration-300 animate-fade-in"
+                className="flex-shrink-0 flex items-center gap-4 px-6 py-4 bg-white dark:bg-slate-800/60 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-600 transition-all duration-300 hover:scale-105 animate-fade-in backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <Icon className={`w-5 h-5 ${item.color}`} />
+                <div
+                  className={`p-2.5 rounded-lg ${item.color === "text-primary" ? "bg-emerald-100 dark:bg-emerald-900/40" : "bg-teal-100 dark:bg-teal-900/40"}`}
+                >
+                  <Icon className={`w-6 h-6 ${item.color}`} />
+                </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{item.label}</p>
-                  <p className="text-lg font-bold text-foreground">
+                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">{item.label}</p>
+                  <p className="text-xl font-bold text-foreground">
                     <CountUpNumber value={value} />
-                    {item.unit && <span className="text-sm ml-1">{item.unit}</span>}
+                    {item.unit && <span className="text-sm ml-1 font-semibold">{item.unit}</span>}
                   </p>
                 </div>
               </div>

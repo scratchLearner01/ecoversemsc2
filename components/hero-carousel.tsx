@@ -10,9 +10,9 @@ const slides = [
     id: 1,
     title: "India's collective impact this week",
     stats: [
-      { label: "CO₂ saved", value: 12000, unit: "kg" },
-      { label: "Trees planted", value: 420, unit: "" },
-      { label: "Recycled", value: 9200, unit: "kg" },
+      { label: "CO₂ saved", value: 184500, unit: "kg" },
+      { label: "Trees planted", value: 2847, unit: "" },
+      { label: "Recycled", value: 156800, unit: "kg" },
     ],
     cta1: "Join the Movement",
     cta2: "See City Rankings",
