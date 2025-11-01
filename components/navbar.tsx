@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import GlobalSearch from "@/components/global-search"
+import EnhancedSearch from "@/components/enhanced-search"
 
 interface NavbarProps {
   isDarkMode: boolean
@@ -58,12 +58,11 @@ export default function Navbar({ isDarkMode, onToggleDarkMode }: NavbarProps) {
             <div className="flex items-center gap-4">
               {/* Search - Desktop */}
               <div className="hidden lg:flex items-center bg-muted rounded-full px-4 py-2 gap-2 w-64">
-                <GlobalSearch />
+                <EnhancedSearch />
               </div>
 
-              {/* Search Icon - Mobile */}
               <button className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors">
-                <GlobalSearch />
+                <EnhancedSearch />
               </button>
 
               {/* Theme Toggle */}

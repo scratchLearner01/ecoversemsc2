@@ -68,6 +68,14 @@ export default function HeroCarousel() {
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+        <div
+          className="absolute bottom-10 right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+      </div>
+
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -118,14 +126,17 @@ export default function HeroCarousel() {
               {/* Slide 3 - Mission */}
               {index === 2 && <p className="text-lg text-muted-foreground mb-8">{slide.subtitle}</p>}
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:scale-103 transition-all duration-200 px-8 py-3 text-base">
+                <Button
+                  className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:scale-105 transition-all duration-200 px-8 py-3 text-base animate-fade-in"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   {slide.cta1}
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-2 border-primary text-primary hover:bg-primary/5 px-8 py-3 text-base bg-transparent"
+                  className="border-2 border-primary text-primary hover:bg-primary/5 px-8 py-3 text-base bg-transparent animate-fade-in"
+                  style={{ animationDelay: "0.3s" }}
                 >
                   {slide.cta2}
                 </Button>
@@ -138,14 +149,14 @@ export default function HeroCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full transition-all duration-200 hover:scale-110"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full transition-all duration-200 hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6 text-foreground" />
       </button>
       <button
         onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full transition-all duration-200 hover:scale-110"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full transition-all duration-200 hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6 text-foreground" />
